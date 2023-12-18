@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .frame {
   position: absolute;
   top: 50%;
@@ -11,11 +16,13 @@
   border-radius: 2px;
 	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
 	overflow: hidden;
-  background: #fff;
-  color: #333;
-	font-family: 'Open Sans', Helvetica, sans-serif;
+  background: linear-gradient(45deg, #443EA1, #4EC2C9);
+  color: #FFF;
+  font-family: 'Courier New', 'Courier', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  animation: identifier 5s  forwards;
 }
 
 .center {
@@ -23,4 +30,71 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+
+.numbers {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.one {
+  width: 1.5rem;
+  height: 7rem;
+  background: #fff;
+  box-shadow: 0 0  13px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.one::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  display: block;
+  width: 1.5rem;
+  height: 3rem;
+  background: #fff;
+  box-shadow: 0 0  13px 0 rgba(0, 0, 0, 0.1);
+  transform: translateX(-19px) rotate(45deg);
+  border-radius: 0 0 3px 3px;
+  z-index: -1;
+}
+
+.zero {
+  position: absolute;
+  z-index: -1;
+  left: 13px;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 28px solid #fff;
+  box-shadow: 0 0  13px 0 rgba(0, 0, 0, 0.1);
+}
+.zero:nth-child(2) {
+  z-index: -2;
+  position: absolute;
+  z-index: -1;
+  left: 105px;
+}
+
+.days {
+  position: relative;
+  display: block;
+  font-size: 5.2rem;
+  font-weight: 550;
+  line-height: 60px;
+  margin-top: 6px;
+}
+
+.challenge {
+  position: relative;
+  display: block;
+  font-size: 1.55rem;
+  font-weight: 550;
+}
+
+@keyframes identifier {
+  to {
+    opacity: 1;
+  }
 }
