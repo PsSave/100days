@@ -1,10 +1,7 @@
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 .frame {
   position: absolute;
   top: 50%;
@@ -16,13 +13,11 @@
   border-radius: 2px;
 	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
 	overflow: hidden;
-  background: linear-gradient(45deg, #443EA1, #4EC2C9);
-  color: #FFF;
-  font-family: 'Courier New', 'Courier', sans-serif;
+  background: #3FAF82;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-  opacity: 0;
-  animation: identifier 5s  forwards;
 }
 
 .center {
@@ -31,3 +26,119 @@
   left: 50%;
   transform: translate(-50%,-50%);
 }
+
+
+.menu {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.line-1, .line-2, .line-3 {
+  width: 80px;
+  height: 8px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.459);
+}
+
+.active .line-1 {
+  animation: down .7s forwards;
+  z-index: 2;
+}
+.active .line-2 {
+  animation: back .7s forwards;
+  z-index: 1;
+  opacity: 1;
+}
+.active .line-3 {
+  animation: up .7s forwards;
+  z-index: 3;
+}
+
+  @keyframes down {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(23px) rotate(0deg);
+    }
+    100% {
+      transform: translateY(23px) rotate(45deg);
+    }
+  }
+  @keyframes back {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes up {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-23px) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-23px) rotate(135deg);
+    }
+  }
+
+.disable .line-1 {
+  animation: down-disable .7s forwards;
+}
+.disable .line-2 {
+  opacity: 0;
+  animation: back-disable .7s forwards;
+}
+.disable .line-3 {
+  animation: up-disable .7s forwards;
+}
+
+
+@keyframes down-disable {
+  0% {
+    transform: translateY(23px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(23px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes back-disable {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes up-disable {
+  0% {
+    transform: translateY(-23px) rotate(135deg);
+  }
+  50% {
+    transform: translateY(-23px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
